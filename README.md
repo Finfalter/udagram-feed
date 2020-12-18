@@ -43,7 +43,8 @@ docker run --env-file ../env.list --net host udagram-feed
 * ```docker ps``` will print all the running containers
 * ```docker kill <CONTAINER_ID>``` will terminate the container
 * ```docker exec -it <container name> /bin/bash``` to get a bash shell in the running container
-* ```bash docker run --env-file ../env.list --net host udagram-feed``` to get a shell in the *NOT* running container
+* ```docker run --env-file ../env.list --net host udagram-feed``` to get a shell in the *NOT* running container
+* ```docker container inspect [OPTIONS] <container id> [CONTAINER...]``` get metadata about mentioned container(s)
 
 ## Step by step
 ```bash
