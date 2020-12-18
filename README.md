@@ -36,6 +36,11 @@ This file should use the syntax ```<variable\>=value``` (which sets the variable
 docker run --env-file ../env.list --net host udagram-feed
 ```
 
+## Dockerfile
+* Either (XOR)
+	- Configure container with ```EXPOSE 8080``` in its *Dockerfile*
+	- Run the container with ```docker run -p 8100:80 <container name>```
+
 ## All useful commands
 * ```docker build -t <container name> .``` will run the Dockerfile to create an image
 * ```docker run <IMAGE_ID>``` will run a container with the image
@@ -64,12 +69,17 @@ docker build -t udagram-feed .
 docker run --env-file ../env.list --net host udagram-feed
 ```
 
+## The Frontend
+
+* https://knowledge.udacity.com/questions/217758
+* https://knowledge.udacity.com/questions/397631
+* https://knowledge.udacity.com/questions/192623
 
 
 
 ---
 **NOTE**
 
-alternative note
+* https://knowledge.udacity.com/questions/326491
 
 ---
