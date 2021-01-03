@@ -1,3 +1,7 @@
+# Rubric
+* https://review.udacity.com/#!/rubrics/2804/view
+
+
 # Docker
 
 > Docker Cheat Sheet
@@ -75,7 +79,11 @@ docker run --env-file ../env.list --net host udagram-feed
 * https://knowledge.udacity.com/questions/397631
 * https://knowledge.udacity.com/questions/192623
 
+# AWS
 
+## S3
+* ```aws s3 ls momi-303817241937-dev``` to list the content of given bucket
+* ```aws s3 rm s3://momi-303817241937-dev/tea.jpg``` to remove given file 
 
 ---
 **NOTE**
