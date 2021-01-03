@@ -1,24 +1,32 @@
 version: "3"
 services:
   reverseproxy:
-      image: udagram-reverse-proxy
-      ports:
-          - 8080:8080
-      restart: always
-      depends_on:
-        - backend-user
-        - backend-feed     
+    build:
+      context: udagram-reverse-proxy
+    image: finfalter/udagram-reverse-proxy
+    ports:
+    - 8080:8080
+    restart: always
+    depends_on:
+      - backend-user
+      - backend-feed
   backend-user:
-    image: udagram-user
+    build:
+      context: udagram-user
+    image: finfalter/udagram-user
     env_file:
-     - ./env.list
+      - ./env.list
+    volumes:
+      - $HOME/.aws/credentials:/root/.aws/credentials:ro
   backend-feed:
-    image: udagram-feed
+    build:
+      context: udagram-feed
+    image: finfalter/udagran-feed
     env_file:
-     - ./env.list
+      - ./env.list
     volumes:
       - $HOME/.aws/credentials:/root/.aws/credentials:ro
   frontend:
-    image: udagram-frontend
-    ports:
-      - "8100:80"
+    build:
+      context: udagram-frontend  
+    image: finfalter/udagram-frontend

@@ -1,0 +1,13 @@
+language: minimal
+
+services: docker
+
+install:
+  - docker-compose -f docker-compose-build.yaml build --parallel 
+  - docker-compose -f docker-compose-build.yaml push
+
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
