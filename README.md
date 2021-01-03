@@ -91,3 +91,10 @@ docker run --env-file ../env.list --net host udagram-feed
 * https://knowledge.udacity.com/questions/326491
 
 ---
+
+# DockerHub
+
+## Tag and Push
+```docker tag <container name> <repo name>```
+```docker login --username=finfalter```
+``````
