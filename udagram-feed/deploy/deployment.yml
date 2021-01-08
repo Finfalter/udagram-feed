@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: udagram-feed
+  name: udagram-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-feed
+    spec:
+      containers:
+      - name: udagram-feed
+        image: finfalter/udagram-feed
+        envFrom:
+        - configMapRef:
+            name: udagram-env
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: aws-secret
+          mountPath: /usr/src/app/secret/
+          readOnly: true  
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret.yml

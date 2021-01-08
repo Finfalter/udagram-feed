@@ -97,4 +97,30 @@ docker run --env-file ../env.list --net host udagram-feed
 ## Tag and Push
 ```docker tag <container name> <repo name>```
 ```docker login --username=finfalter```
-``````
+```docker push finfalter/udagram-feed```
+
+# Kubernetes
+
+## Information
+```kubectl get pods```
+
+## Debugging
+```kubectl logs ${POD_NAME}```
+```kubectl describe pod ${POD_SHORT_NAME}```
+
+### Get a Shell to a Running Container
+> https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
+```kubectl exec --stdin --tty <NAME> -- /bin/bash```
+
+
+## Cleanup
+```kubectl delete -n NAMESPACE deployment DEPLOYMENT``` e.g. ```kubectl delete -n default deployment udagram-feed```
+```kubectl delete --all pods --namespace=default```
+
+
+## Configuration
+```bash
+# configure a configuration map
+# https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+kubectl create configmap udagram-env --from-env-file=./env.list
+```
