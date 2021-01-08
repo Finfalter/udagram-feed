@@ -36,4 +36,4 @@ spec:
       volumes:
       - name: aws-secret
         secret:
-          secretName: aws-secret.yml
+          secretName: aws-secret

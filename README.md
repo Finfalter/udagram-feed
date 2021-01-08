@@ -120,7 +120,32 @@ docker run --env-file ../env.list --net host udagram-feed
 
 ## Configuration
 ```bash
-# configure a configuration map
+echo "changing location"
+cd ~/dev/udacity/cloud-developer/03-microservices/src/project/udagram-microservices
+
+kubectl delete all --all -n default
+
+# create a secret
+# https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/
+kubectl apply -f ../../aws-secret.yml
+
+# create a configuration map
 # https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 kubectl create configmap udagram-env --from-env-file=./env.list
+
+kubectl apply -f udagram-feed/deploy/deployment.yml
+kubectl apply -f udagram-feed/deploy/service.yml
+
+kubectl apply -f udagram-user/deploy/deployment.yml
+kubectl apply -f udagram-user/deploy/service.yml
+
+kubectl apply -f udagram-frontend/deploy/deployment.yml
+kubectl apply -f udagram-frontend/deploy/service.yml
+
+kubectl apply -f udagram-reverse-proxy/deploy/deployment.yml
+kubectl apply -f udagram-reverse-proxy/deploy/service.yml
+
+kubectl get secret aws-secret -o yaml
+
+kubectl get pods
 ```
