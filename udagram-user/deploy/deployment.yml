@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: udagram-user
   name: udagram-user
+  labels:
+    service: udagram-user
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-user
+      service: udagram-user
   template:
     metadata:
       labels:
-        app: udagram-user
+        service: udagram-user
     spec:
       containers:
       - name: udagram-user

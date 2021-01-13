@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: udagram-feed
   name: udagram-feed
+  labels:
+    service: udagram-feed
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-feed
+      service: udagram-feed
   template:
     metadata:
       labels:
-        app: udagram-feed
+        service: udagram-feed
     spec:
       containers:
       - name: udagram-feed

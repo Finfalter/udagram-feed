@@ -85,6 +85,10 @@ docker run --env-file ../env.list --net host udagram-feed
 * ```aws s3 ls momi-303817241937-dev``` to list the content of given bucket
 * ```aws s3 rm s3://momi-303817241937-dev/tea.jpg``` to remove given file 
 
+## Kubernetes
+* Pairing local cli with EKS:
+```aws eks --region eu-central-1 update-kubeconfig --name Demo```
+
 ---
 **NOTE**
 
@@ -111,7 +115,6 @@ docker run --env-file ../env.list --net host udagram-feed
 ### Get a Shell to a Running Container
 > https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
 ```kubectl exec --stdin --tty <NAME> -- /bin/bash```
-
 
 ## Cleanup
 ```kubectl delete -n NAMESPACE deployment DEPLOYMENT``` e.g. ```kubectl delete -n default deployment udagram-feed```
@@ -147,5 +150,19 @@ kubectl apply -f udagram-reverse-proxy/deploy/service.yml
 
 kubectl get secret aws-secret -o yaml
 
+kubectl get configmap udagram-env -o yaml
+
 kubectl get pods
+```
+
+## Autoscaling
+```kubectl autoscale deployment <NAME> --cpu-percent=<CPU_PERCENTAGE> --min=<MIN_REPLICAS> --max=<MAX_REPLICAS>```
+```kubectl get hpa```
+
+## Minikube
+
+### External IP
+```bash
+# https://stackoverflow.com/questions/44110876/kubernetes-service-external-ip-pending
+minikube service --url udagram-frontend
 ```
