@@ -166,3 +166,8 @@ kubectl get pods
 # https://stackoverflow.com/questions/44110876/kubernetes-service-external-ip-pending
 minikube service --url udagram-frontend
 ```
+
+### Port Forwarding
+```kubectl port-forward udagram-reverse-proxy-64f66fd9d6-v4f8v 8080:8080```
+
+```kubectl port-forward udagram-frontend-64f66fd9d6-v4f8v 8100:80```
