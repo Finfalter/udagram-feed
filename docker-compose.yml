@@ -1,6 +1,6 @@
 version: "3"
 services:
-  reverseproxy:
+  reverse-proxy:
     build:
       context: udagram-reverse-proxy
     image: finfalter/udagram-reverse-proxy
