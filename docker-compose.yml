@@ -44,7 +44,7 @@ services:
       URL: "http://localhost:8100"
   udagram-frontend:
     build:
-      context: udagram-feed
+      context: udagram-frontend
     image: finfalter/udagram-frontend
     ports:
       - "8100:80"
