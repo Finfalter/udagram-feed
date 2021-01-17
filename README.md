@@ -114,7 +114,7 @@ docker run --env-file ../env.list --net host udagram-feed
 
 ### Get a Shell to a Running Container
 > https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
-```kubectl exec --stdin --tty <NAME> -- /bin/bash```
+```kubectl exec <ID> --stdin --tty /bin/bash```
 
 ## Cleanup
 ```kubectl delete -n NAMESPACE deployment DEPLOYMENT``` e.g. ```kubectl delete -n default deployment udagram-feed```
@@ -171,3 +171,7 @@ minikube service --url udagram-frontend
 ```kubectl port-forward udagram-reverse-proxy-64f66fd9d6-v4f8v 8080:8080```
 
 ```kubectl port-forward udagram-frontend-64f66fd9d6-v4f8v 8100:80```
+
+### ConfigMap
+replace:
+```kubectl create configmap udagram-env --from-file ./env.list -o yaml --dry-run | kubectl replace -f -```

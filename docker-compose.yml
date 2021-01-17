@@ -14,34 +14,10 @@ services:
     build:
       context: udagram-user
     image: finfalter/udagram-user
-    volumes:
-      - $HOME/.aws/credentials:/root/.aws/credentials:ro
-    environment:
-      POSTGRES_USERNAME : $POSTGRES_USERNAME
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_HOST: $POSTGRES_HOST
-      AWS_REGION: $AWS_REGION
-      AWS_PROFILE: $AWS_PROFILE
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
-      URL: "http://localhost:8100"
   udagram-feed:
     build:
       context: udagram-feed
     image: finfalter/udagran-feed
-    volumes:
-      - $HOME/.aws/credentials:/root/.aws/credentials:ro
-    environment:
-      POSTGRES_USERNAME : $POSTGRES_USERNAME
-      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
-      POSTGRES_DB: $POSTGRES_DB
-      POSTGRES_HOST: $POSTGRES_HOST
-      AWS_REGION: $AWS_REGION
-      AWS_PROFILE: $AWS_PROFILE
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
-      URL: "http://localhost:8100"
   udagram-frontend:
     build:
       context: udagram-frontend

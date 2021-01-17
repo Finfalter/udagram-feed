@@ -17,6 +17,7 @@ spec:
       containers:
       - name: udagram-user
         image: finfalter/udagram-user
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: udagram-env
@@ -37,3 +38,6 @@ spec:
       - name: aws-secret
         secret:
           secretName: aws-secret
+      - name: env-secret
+        secret:
+          secretName: env-secret
