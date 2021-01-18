@@ -15,7 +15,6 @@ kubectl apply -f ../env-secret.yml
 
 # create a configuration map
 # https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
-#kubectl create configmap udagram-env --from-env-file=../env.list
 kubectl apply -f ../udagram-env.yml
 
 kubectl apply -f ./feed-deployment.yml

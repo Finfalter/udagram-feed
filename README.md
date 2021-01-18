@@ -109,7 +109,7 @@ docker run --env-file ../env.list --net host udagram-feed
 ```kubectl get pods```
 
 ## Debugging
-```kubectl logs ${POD_NAME}```
+```kubectl logs ${POD_NAME} -p```
 ```kubectl describe pod ${POD_SHORT_NAME}```
 
 ### Get a Shell to a Running Container
@@ -175,3 +175,8 @@ minikube service --url udagram-frontend
 ### ConfigMap
 replace:
 ```kubectl create configmap udagram-env --from-file ./env.list -o yaml --dry-run | kubectl replace -f -```
+
+
+
+echo -n 'hallo' | base64
+echo -n 'bWF6ZGEzMjMK' | base64 --decode

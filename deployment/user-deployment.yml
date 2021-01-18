@@ -28,16 +28,58 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "500m"
-        ports:
-        - containerPort: 8080
+        env:
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: URL
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: AWS_BUCKET
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: AWS_PROFILE
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: AWS_REGION
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: JWT_SECRET
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: udagram-env
+              key: POSTGRES_HOST
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_USERNAME     
         volumeMounts:
         - name: aws-secret
-          mountPath: /usr/src/app/secret/
+          mountPath: "/usr/src/app/secret/"
           readOnly: true  
+      restartPolicy: Always     
       volumes:
       - name: aws-secret
         secret:
           secretName: aws-secret
-      - name: env-secret
-        secret:
-          secretName: env-secret
