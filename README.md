@@ -87,7 +87,7 @@ docker run --env-file ../env.list --net host udagram-feed
 
 ## Kubernetes
 * Pairing local cli with EKS:
-```aws eks --region eu-central-1 update-kubeconfig --name Demo```
+```aws eks --region eu-central-1 update-kubeconfig --name DemoCB```
 
 ---
 **NOTE**
