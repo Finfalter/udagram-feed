@@ -3,9 +3,9 @@ services:
   reverse-proxy:
     build:
       context: udagram-reverse-proxy
-    image: finfalter/udagram-reverse-proxy
+    image: finfalter/udagram-reverse-proxy:latest
     ports:
-    - 8080:8080
+      - 8080:8080
     restart: always
     depends_on:
       - udagram-user
@@ -13,14 +13,14 @@ services:
   udagram-user:
     build:
       context: udagram-user
-    image: finfalter/udagram-user
+    image: finfalter/udagram-user:latest
   udagram-feed:
     build:
       context: udagram-feed
-    image: finfalter/udagran-feed
+    image: finfalter/udagran-feed:latest
   udagram-frontend:
     build:
       context: udagram-frontend
-    image: finfalter/udagram-frontend
+    image: finfalter/udagram-frontend:latest
     ports:
       - "8100:80"
